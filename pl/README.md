@@ -1,12 +1,4 @@
-# Bamboo
-
-## Publicized Experiments
-In build directory, execute:
-```
-$ ../script/low_contention.sh
-$ ../script/high_contentionA.sh
-$ ../script/high_contentionB.sh
-```
+# Plor
 
 ## How to use
 - Build masstree (optional)

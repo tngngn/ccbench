@@ -1,13 +1,4 @@
-# Bamboo
-
-## Publicized Experiments
-In build directory, execute:
-```
-$ ../script/low_contention.sh
-$ ../script/high_contentionA.sh
-$ ../script/high_contentionB.sh
-```
-Please switch between Bamboo, TID, FairTID, and RandID each time.
+# Plor
 
 ## How to use
 - Build masstree (optional)
@@ -35,7 +26,7 @@ $ ./bamboo.exe -help
 ```
 - Execution example 
 ```
-$ numactl --interleave=all ./bamboo.exe -clocks_per_us=2100 -extime=3 -max_ope=10 -rmw=0 -rratio=100 -thread_num=224 -tuple_num=1000000 -ycsb=1 -zipf_skew=0
+$ numactl --interleave=all ./plor.exe -clocks_per_us=2100 -extime=3 -max_ope=10 -rmw=0 -rratio=100 -thread_num=224 -tuple_num=1000000 -ycsb=1 -zipf_skew=0
 ```
 
 ## How to customize options in CMakeLists.txt
@@ -49,17 +40,6 @@ default : `0`
 default : `1`
 - `VAL_SIZE` : Value of key-value size. In other words, payload size.<br>
 default : `4`
-- `NONTS` : If this is 1, transactions use their thread IDs as timestamps.
-default : `0`
-  - suboption `FAIR` : If both this and `NONTS` are 1, threads increment their IDs to take turn committing transactions.
-  default : `0`
-- `RANDOM` : If this is 1, transactions randomly generate timestamps.
-default : `0`
-
-## Optimizations
-- Backoff.
-- Define NONTS for TID, NONTS and FAIR for FairTID
-- Define RANDOM for RandID
 
 ## Implementation
 - Lock : reader/writer lock
